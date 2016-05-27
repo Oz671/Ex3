@@ -53,12 +53,15 @@ for i in range(0,number_robots):
         robot_sim.insert(i, Robot.Robot(x,y,'white',i))
     
 checkered(w,10)
+
 #check robot closest to robotID=50
 def robotCloset():
     min=10000
+    
     for i in range(0,number_robots):
         if(i!=50):
-            dist=int(math.sqrt(math.pow(robot_sim[i].x-robot_sim[50].x,2)+math.pow(robot_sim[i].y-robot_sim[50].y,2)))
+          
+            dist=int(robot_sim[i].error_dist*(math.sqrt(math.pow(robot_sim[i].x-robot_sim[50].x,2)+math.pow(robot_sim[i].y-robot_sim[50].y,2))))
             if(dist<min):
                 min=dist
                 id=i
@@ -80,7 +83,7 @@ def MSG():
     for i in range(0,number_robots):
         count=0
         while(count<number_robots):
-            if(count!=i and r>int(math.sqrt(math.pow(robot_sim[i].x-robot_sim[count].x,2)+math.pow(robot_sim[i].y-robot_sim[count].y,2)))):
+            if(count!=i and r>int(robot_sim[i].error_dist*(math.sqrt(math.pow(robot_sim[i].x-robot_sim[count].x,2)+math.pow(robot_sim[i].y-robot_sim[count].y,2))))):
                 robot_sim[i].addMSG(count)
             count=count+1
             
