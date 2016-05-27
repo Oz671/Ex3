@@ -5,10 +5,13 @@ class Robot:
         self.id=id
         self.battery=100
         self.color=color
+        self.msg=[]
         if(color=='gray'):
-            print('RobotID:', id, ' in Zone Gray')
+            print('RobotID:', id, 'in Zone Gray')
             
-            
+    def addMSG(self,id):
+        self.msg.append(id)
+
     def moveLeft(self,B1,B2):
         if(self.battery>9 and((self.x-10<B1 or self.x-10>B1+50) or (self.y<B1 or self.y>B1+50)) or ((self.x-5<B2 or self.x-5>B2+50) or (self.y<B2 or self.y>B2+50))):
             self.x=self.x-10
