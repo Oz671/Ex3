@@ -1,3 +1,6 @@
+import random
+error_dist=0.2
+
 class Robot:
     def __init__(self,x,y,color,id):
         self.x=x
@@ -6,6 +9,7 @@ class Robot:
         self.battery=100
         self.color=color
         self.msg=[]
+        self.error_dist=random.random()*2*error_dist+(1-error_dist)
         if(color=='gray'):
             print('RobotID:', id, 'in Zone Gray')
             
